@@ -1,0 +1,15 @@
+[build]
+command = "hugo --minify"
+publish = "public"
+
+[context.production.environment]
+HUGO_VERSION = "0.55.5"
+HUGO_ENV = "production"
+
+[[redirects]]
+  from = "/feed"
+  to = "/index.xml"
+
+[[redirects]]
+  from = "/feed/articles"
+  to = "/articles/index.xml"

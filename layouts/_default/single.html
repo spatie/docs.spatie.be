@@ -1,0 +1,46 @@
+{{ define "main" }}
+
+{{ $package := .FirstSection.Title }}
+{{ $version := "" }}
+{{ range .FirstSection.Sections }}
+  {{ if .IsAncestor $.Page }}
+    {{ $version = .Title }}
+  {{ end }}
+{{ end }}
+
+{{ $package }} {{ $version }}
+
+{{ range .Site.Sections.ByTitle }}
+  {{ if eq .Title $package }}
+    <ul>
+      {{ range .Sections.ByTitle }}
+        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+    {{ range .Sections.ByTitle }}
+      {{ if eq .Title $version }}
+        <ul>
+          {{ range .Pages.ByTitle }}
+            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+          {{ end }}
+          {{ range .Sections.ByTitle }}
+            <li>
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
+              <ul>
+                {{ range .Pages.ByTitle }}
+                  <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+                {{ end }}
+              </ul>
+            </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<h1>{{ .Title }}</h1>
+
+{{ .Content }}
+
+{{ end }}
