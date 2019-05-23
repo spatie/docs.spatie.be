@@ -3,23 +3,25 @@ const exec = util.promisify(require("child_process").exec);
 
 const repositories = require("./repositories.json");
 
+function transformBranchToFolderName(branch) {
+    return branch.startsWith('v') ? branch.substring(1) : branch;
+}
+
 (async function () {
     await exec("rm -rf content");
-    await exec("mkdir temp");
 
     try {
-        for (const repository of repositories) {
-            await exec(`mkdir -p content/${repository.name}`);
-            await exec(`git clone https://github.com/${repository.repository}.git temp/${repository.name}`);
+        let promises = [];
 
+        for (const repository of repositories) {
             for (const [branch, alias] of Object.entries(repository.branches)) {
-                await exec(`cd temp/${repository.name} && git checkout ${branch}`);
-                await exec(`cp -r temp/${repository.name}/docs content/${repository.name}/${alias}`);
+                promises.push(exec(`mkdir -p content/${repository.name}/${alias} && curl https://codeload.github.com/${repository.repository}/tar.gz/${branch} \
+                 | tar -xz -C content/${repository.name}/${alias} --strip=2 ${repository.repository.split('/')[1]}-${transformBranchToFolderName(branch)}/docs`));
             }
         }
+
+        await Promise.all(promises);
     } catch (error) {
         throw error;
-    } finally {
-        await exec("rm -rf temp");
     }
 })();
