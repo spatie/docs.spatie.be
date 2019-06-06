@@ -23,7 +23,11 @@
 {{ else }}
     {{ $.Scratch.Set "slogan" "Documentation for our comprehensive packages" }}
 {{ end }}
-{{ $.Scratch.Set "githubUrl" ($section.Param "githubUrl") }}
+{{ if ($section.Param "githubUrl") }}
+    {{ $.Scratch.Set "githubUrl" ($section.Param "githubUrl") }}
+{{ else }}
+    {{ $.Scratch.Set "githubUrl" "https://github.com/spatie" }}
+{{ end }}
 {{ if $section.File }}
     {{ $.Scratch.Set "branch" (path.Base ($section.File.Dir)) }}
 {{ end }}
@@ -55,7 +59,7 @@
                 <p class="header_caption_slogan">{{ $.Scratch.Get "slogan" }}</p>
             </div>
             <div class="header_logos">
-                <a href="#" target="_external">
+                <a href="{{ $.Scratch.Get "githubUrl" }}" target="_external">
                     {{ readFile "static/svg/github.svg" | safeHTML }}
                 </a>
                 <a href="https://spatie.be" target="_external">
