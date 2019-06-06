@@ -1,7 +1,20 @@
 {{ define "main" }}
+<div class="grid">
+    <div class="grid_col -width-2/3">
+        <article class="article">
+            <h1>Overview</h1>
 
-<h1>{{ .Title }}</h1>
+            {{ range .Site.Sections.ByTitle }}
+                {{ $section := index (.FirstSection.Sections) 0 }}
+                {{ $page := index ($section.Pages) 0 }}
+                <h3><a href="{{ $page.Permalink }}">{{ .Title }}</a></h3>
+                <p>{{ $section.Param "slogan" }}</p>
+            {{ end }}
 
-HOME
+            <hr>
+            <p>Find even more <a href="https://spatie.be/en/opensource">Open Source projects</a> on our website.</p>
 
+        </article>
+    </div>
+</div>
 {{ end }}

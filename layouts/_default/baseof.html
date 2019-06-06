@@ -18,7 +18,11 @@
     {{ end }}
 {{ end }}
 {{ $section := index (.FirstSection.Sections) 0 }}
-{{ $.Scratch.Set "slogan" ($section.Param "slogan") }}
+{{ if ($section.Param "slogan") }}
+    {{ $.Scratch.Set "slogan" ($section.Param "slogan") }}
+{{ else }}
+    {{ $.Scratch.Set "slogan" "Documentation for our comprehensive packages" }}
+{{ end }}
 {{ $.Scratch.Set "githubUrl" ($section.Param "githubUrl") }}
 {{ if $section.File }}
     {{ $.Scratch.Set "branch" (path.Base ($section.File.Dir)) }}
