@@ -1,5 +1,5 @@
 [build]
-command = "node fetch-content.js && hugo"
+command = "node fetch-content.js && hugo -b $DEPLOY_URL"
 publish = "public"
 
 [context.production.environment]
