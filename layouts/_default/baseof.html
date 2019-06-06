@@ -41,7 +41,7 @@
         <div class="grid">
             <div class="header_caption">
                 <h1 class="header_caption_title">
-                    <a class="header_caption_title_link" href="/{{ $.Scratch.Get "package" }}/{{ $.Scratch.Get "version" }}" >{{ $.Scratch.Get "package" }}</a>
+                    <a class="header_caption_title_link" href="/" >{{ $.Scratch.Get "package" }}</a>
                     {{ if gt (len .FirstSection.Sections) 1 }}
                         <a href="#" data-version class="header_version -selectable">
                             {{ $.Scratch.Get "version" }}
