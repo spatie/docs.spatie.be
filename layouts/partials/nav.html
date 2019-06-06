@@ -8,19 +8,19 @@
 
 {{ range .Site.Sections.ByTitle }}
   {{ if eq .Title $package }}
-    {{ range .Sections.ByTitle }}
+    {{ range .Sections.ByParam "order" }}
       {{ if eq .Title $version }}
       <ul>
-        {{ range .Pages.ByTitle }}
+        {{ range .Pages.ByParam "order" }}
         <li class='{{ cond (eq .Permalink $.Permalink) "exact-active active" "" }}'>
           <a href="{{ .Permalink }}" class='{{ cond (eq .Permalink $.Permalink) "exact-active active" "" }}'>{{ .Title }}</a>
         </li>
         {{ end }}
-        {{ range .Sections.ByTitle }}
+        {{ range .Sections.ByParam "order" }}
         <li class='{{ cond (eq .Permalink $.Permalink) "exact-active active" "" }}'>
           <h2>{{ .Title }}</h2>
           <ul>
-            {{ range .Pages.ByTitle }}
+            {{ range .Pages.ByParam "order" }}
             <li class='{{ cond (eq .Permalink $.Permalink) "exact-active active" "" }}'>
               <a href="{{ .Permalink }}" class='{{ cond (eq .Permalink $.Permalink) "exact-active active" "" }}'>{{ .Title }}</a>
             </li>

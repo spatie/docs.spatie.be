@@ -11,13 +11,16 @@
 <body>
 {{ partialCached "analytics.html" . }}
 
-{{ $package := .FirstSection.Title }}
-    {{ $version := "" }}
-    {{ range .FirstSection.Sections }}
-        {{ if .IsAncestor $.Page }}
-    {{ $version = .Title }}
+{{ $.Scratch.Set "package" .FirstSection.Title }}
+{{ range .FirstSection.Sections }}
+    {{ if .IsAncestor $.Page }}
+        {{ $.Scratch.Set "version" .Title }}
     {{ end }}
 {{ end }}
+{{ $section := index (.FirstSection.Sections) 0 }}
+{{ $.Scratch.Set "slogan" ($section.Param "slogan") }}
+{{ $.Scratch.Set "githubUrl" ($section.Param "githubUrl") }}
+{{ $.Scratch.Set "branch" (path.Base ($section.File.Dir)) }}
 
 <header class="header">
     <div class="header_background" data-header-background></div>
@@ -25,10 +28,10 @@
         <div class="grid">
             <div class="header_caption">
                 <h1 class="header_caption_title">
-                    <a class="header_caption_title_link" href="/{{ $package }}/{{ $version }}" >{{ $package }}</a>
+                    <a class="header_caption_title_link" href="/{{ $.Scratch.Get "package" }}/{{ $.Scratch.Get "version" }}" >{{ $.Scratch.Get "package" }}</a>
                     {{ if gt (len .FirstSection.Sections) 1 }}
                         <a href="#" data-version class="header_version -selectable">
-                            {{ $version }}
+                            {{ $.Scratch.Get "version" }}
                             <span class="header_version_caret"></span>
                         </a>
                     {{ end }}
@@ -36,15 +39,14 @@
                 {{ if gt (len .FirstSection.Sections) 1 }}
                     <ul data-versions class="header_version_dropdown" style="display:none" >
                         {{ range .FirstSection.Sections }}
-                        <li class='{{ cond (eq $version .Title) "-current" "" }}'>
-                            <a href="/{{ $package | lower }}/{{ .Title }}" >{{ .Title }}</a>
+                        <li class='{{ cond (eq ($.Scratch.Get "version") .Title) "-current" "" }}'>
+                            <a href="/{{ $.Scratch.Get "package" | lower }}/{{ .Title }}" >{{ .Title }}</a>
                         </li>
                         {{ end }}
                     </ul>
                 {{ end }}
                 <br>
-                {{ $section := index (.FirstSection.Sections) 0 }}
-                <p class="header_caption_slogan">{{ $section.Param "slogan" }}</p>
+                <p class="header_caption_slogan">{{ $.Scratch.Get "slogan" }}</p>
             </div>
             <div class="header_logos">
                 <a href="#" target="_external">
@@ -63,7 +65,7 @@
 <footer class="footer">
     <div class="grid">
         <div class="footer_content">
-            © {{ now.Format "2006" }} • <a href="/">Spatie Docs</a> • <a href="#">Github</a>
+            © {{ now.Format "2006" }} • <a href="/">Spatie Docs</a> • <a href='{{ $.Scratch.Get "githubUrl" }}'>Github</a>
         </div>
     </div>
     <a href="#" data-viewport-scroll class="nav_button -bottom">up</a>
