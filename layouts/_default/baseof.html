@@ -20,7 +20,9 @@
 {{ $section := index (.FirstSection.Sections) 0 }}
 {{ $.Scratch.Set "slogan" ($section.Param "slogan") }}
 {{ $.Scratch.Set "githubUrl" ($section.Param "githubUrl") }}
-{{ $.Scratch.Set "branch" (path.Base ($section.File.Dir)) }}
+{{ if $section.File }}
+    {{ $.Scratch.Set "branch" (path.Base ($section.File.Dir)) }}
+{{ end }}
 
 <header class="header">
     <div class="header_background" data-header-background></div>

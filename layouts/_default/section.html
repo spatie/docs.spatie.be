@@ -14,12 +14,6 @@
       <h1>{{ .Title }}</h1>
       {{ .Content }}
     </article>
-    {{ if .File }}
-      <div class="toolbar">
-        {{ $path := replace (path.Base .File.Dir) ($.Scratch.Get "branch") "" }}
-        <a class="toolbar_item" target="_external" href="{{ $.Scratch.Get "githubUrl" }}/blob/{{ $.Scratch.Get "branch" }}/docs/{{ $path }}{{ cond (gt (len $path) 0) "/" "" }}{{ .File.LogicalName }}">Edit on <span>{{ readFile "static/svg/github.svg" | safeHTML }}</span></a>
-      </div>
-    {{ end }}
   </div>
 </div>
 {{ end }}
