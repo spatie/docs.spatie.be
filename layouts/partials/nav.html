@@ -1,0 +1,35 @@
+{{ $package := .FirstSection.Title }}
+{{ $version := "" }}
+{{ range .FirstSection.Sections }}
+  {{ if .IsAncestor $.Page }}
+  {{ $version = .Title }}
+  {{ end }}
+{{ end }}
+
+{{ range .Site.Sections.ByTitle }}
+  {{ if eq .Title $package }}
+    {{ range .Sections.ByTitle }}
+      {{ if eq .Title $version }}
+      <ul>
+        {{ range .Pages.ByTitle }}
+        <li class='{{ cond (eq .Permalink $.Permalink) "exact-active active" "" }}'>
+          <a href="{{ .Permalink }}" class='{{ cond (eq .Permalink $.Permalink) "exact-active active" "" }}'>{{ .Title }}</a>
+        </li>
+        {{ end }}
+        {{ range .Sections.ByTitle }}
+        <li class='{{ cond (eq .Permalink $.Permalink) "exact-active active" "" }}'>
+          <h2>{{ .Title }}</h2>
+          <ul>
+            {{ range .Pages.ByTitle }}
+            <li class='{{ cond (eq .Permalink $.Permalink) "exact-active active" "" }}'>
+              <a href="{{ .Permalink }}" class='{{ cond (eq .Permalink $.Permalink) "exact-active active" "" }}'>{{ .Title }}</a>
+            </li>
+            {{ end }}
+          </ul>
+        </li>
+        {{ end }}
+      </ul>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}

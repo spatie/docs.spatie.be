@@ -1,11 +1,74 @@
 <!DOCTYPE html>
 <html lang="{{ $.Site.Language.Lang }}">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  </head>
+<head>
+    <title>{{ .Title }}</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <link rel="stylesheet" href="/static/css/docs.css">
+    <script src="/static/js/docs.js" defer></script>
+</head>
 
-  <body>
+<body>
+{{ partialCached "analytics.html" . }}
+
+{{ $package := .FirstSection.Title }}
+    {{ $version := "" }}
+    {{ range .FirstSection.Sections }}
+        {{ if .IsAncestor $.Page }}
+    {{ $version = .Title }}
+    {{ end }}
+{{ end }}
+
+<header class="header">
+    <div class="header_background" data-header-background></div>
+    <div class="header_content">
+        <div class="grid">
+            <div class="header_caption">
+                <h1 class="header_caption_title">
+                    <a class="header_caption_title_link" href="/{{ $package }}/{{ $version }}" >{{ $package }}</a>
+                    {{ if gt (len .FirstSection.Sections) 1 }}
+                        <a href="#" data-version class="header_version -selectable">
+                            {{ $version }}
+                            <span class="header_version_caret"></span>
+                        </a>
+                    {{ end }}
+                </h1>
+                {{ if gt (len .FirstSection.Sections) 1 }}
+                    <ul data-versions class="header_version_dropdown" style="display:none" >
+                        {{ range .FirstSection.Sections }}
+                        <li class='{{ cond (eq $version .Title) "-current" "" }}'>
+                            <a href="/{{ $package | lower }}/{{ .Title }}" >{{ .Title }}</a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                {{ end }}
+                <br>
+                {{ $section := index (.FirstSection.Sections) 0 }}
+                <p class="header_caption_slogan">{{ $section.Param "slogan" }}</p>
+            </div>
+            <div class="header_logos">
+                <a href="#" target="_external">
+                    {{ readFile "static/svg/github.svg" | safeHTML }}
+                </a>
+                <a href="https://spatie.be" target="_external">
+                    {{ readFile "static/svg/spatie.svg" | safeHTML }}
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+<main class="main" id="main">
     {{ block "main" . }}{{ end }}
-  </body>
+</main>
+<footer class="footer">
+    <div class="grid">
+        <div class="footer_content">
+            © {{ now.Format "2006" }} • <a href="/">Spatie Docs</a> • <a href="#">Github</a>
+        </div>
+    </div>
+    <a href="#" data-viewport-scroll class="nav_button -bottom">up</a>
+</footer>
+
+{{ partial "algolia.html" . }}
+</body>
 </html>

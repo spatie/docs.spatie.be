@@ -1,6 +1,6 @@
-baseURL = "http://example.org/"
+baseURL = "http://hugo.docs.spatie.be.test/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Spatie Docs"
 
 pluralizelisttitles = false
 disableKinds = ["taxonomy", "taxonomyTerm", "RSS", "sitemap"]

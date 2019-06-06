@@ -1,18 +1,10 @@
 [
     {
-        "name": "enum",
-        "repository": "sebastiandedeyne/docs-dummy-repo-1",
+        "name": "laravel-backup",
+        "repository": "spatie/laravel-backup",
         "branches": {
-            "master": "v2",
-            "v1": "v1"
-        }
-    },
-    {
-        "name": "another-package",
-        "repository": "sebastiandedeyne/docs-dummy-repo-1",
-        "branches": {
-            "master": "v2",
-            "v1": "v1"
+            "docs": "master",
+            "docs": "v5"
         }
     }
 ]
