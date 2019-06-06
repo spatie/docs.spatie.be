@@ -21,7 +21,11 @@
 <!DOCTYPE html>
 <html lang="{{ $.Site.Language.Lang }}">
 <head>
-    <title>{{ .Title }} | {{ $.Scratch.Get "package" }}</title>
+    {{ if ne .Title ($.Scratch.Get "package") }}
+        <title>{{ .Title }} | {{ $.Scratch.Get "package" }}</title>
+    {{ else }}
+        <title>{{ .Title }}</title>
+    {{ end }}
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <link rel="stylesheet" href="/css/docs.css">
