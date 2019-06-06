@@ -3,7 +3,10 @@
         "name": "laravel-backup",
         "repository": "spatie/laravel-backup",
         "branches": {
-            "docs": "master"
+            "master": "v6",
+            "v5": "v5",
+            "v4": "v4",
+            "v3": "v3"
         }
     }
 ]

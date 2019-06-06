@@ -53,7 +53,8 @@
                     <ul data-versions class="header_version_dropdown" style="display:none" >
                         {{ range .FirstSection.Sections }}
                         <li class='{{ cond (eq ($.Scratch.Get "version") .Title) "-current" "" }}'>
-                            <a href="/{{ $.Scratch.Get "package" | lower }}/{{ .Title }}" >{{ .Title }}</a>
+                            {{ $page := index (.Pages) 0 }}
+                            <a href="{{ $page.Permalink }}" >{{ .Title }}</a>
                         </li>
                         {{ end }}
                     </ul>
