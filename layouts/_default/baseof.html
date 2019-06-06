@@ -19,6 +19,9 @@
         {{ end }}
     {{ end }}
 {{ end }}
+{{ if not ($.Scratch.Get "slogan") }}
+    {{ $.Scratch.Set "slogan" "Documentation for our comprehensive packages" }}
+{{ end }}
 <!DOCTYPE html>
 <html lang="{{ $.Site.Language.Lang }}">
 <head>
