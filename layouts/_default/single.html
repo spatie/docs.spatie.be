@@ -18,7 +18,7 @@
       <div class="toolbar">
         {{ $path := replace (path.Base .File.Dir) ($.Scratch.Get "branch") "" }}
         {{ $path := replace $path ($.Scratch.Get "version") "" }}
-        <a class="toolbar_item" target="_external" href="{{ $.Scratch.Get "githubUrl" }}/blob/{{ $.Scratch.Get "branch" }}/docs/{{ $path }}{{ cond (gt (len $path) 0) "/" "" }}{{ .File.LogicalName }}">Edit on <span>{{ readFile "static/svg/github.svg" | safeHTML }}</span></a>
+        <a class="toolbar_item" target="_external" href="{{ $.Scratch.Get "githubUrl" }}/edit/{{ $.Scratch.Get "branch" }}/docs/{{ $path }}{{ cond (gt (len $path) 0) "/" "" }}{{ .File.LogicalName }}">Edit on <span>{{ readFile "static/svg/github.svg" | safeHTML }}</span></a>
       </div>
     {{ end }}
   </div>
