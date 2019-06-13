@@ -1650,8 +1650,17 @@ sup {
   text-decoration: none;
   text-transform: none; }
 
+.header {
+  background: rgba(28, 56, 71, .85);
+}
+
 .header_background {
-  background: #1b3747; }
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size: cover;
+  opacity: .2;
+}
 
 .header_caption_title,
 .header_caption_slogan {
