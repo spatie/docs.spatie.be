@@ -46,14 +46,14 @@
             <div class="header_caption">
                 <h1 class="header_caption_title">
                     <a class="header_caption_title_link" href="/" >{{ $.Scratch.Get "package" }}</a>
-                    {{ if gt (len .FirstSection.Sections) 1 }}
+                    {{ if and (gt (len .FirstSection.Sections) 1) (not .IsHome) }}
                         <a href="#" data-version class="header_version -selectable">
                             {{ $.Scratch.Get "version" }}
                             <span class="header_version_caret"></span>
                         </a>
                     {{ end }}
                 </h1>
-                {{ if gt (len .FirstSection.Sections) 1 }}
+                {{ if and (gt (len .FirstSection.Sections) 1) (not .IsHome) }}
                     <ul data-versions class="header_version_dropdown" style="display:none" >
                         {{ range .FirstSection.Sections }}
                         <li class='{{ cond (eq ($.Scratch.Get "version") .Title) "-current" "" }}'>

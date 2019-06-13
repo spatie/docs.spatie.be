@@ -4,16 +4,18 @@
         <article class="article">
             <h1>Overview</h1>
 
-            {{ range .Site.Sections.ByTitle }}
-                {{ $section := index (last 1 .FirstSection.Sections) 0 }}
-                {{ $page := index ($section.Pages) 0 }}
-                <h3><a href="{{ $page.Permalink }}">{{ .Title }}</a></h3>
-                <p>{{ $section.Param "slogan" }}</p>
+            {{ range .Site.Sections.GroupByParam "category" }}
+                <h2>{{ replace (.Key | humanize | title) "Php" "PHP" }}</h2>
+                {{ range .Pages }}
+                    {{ $section := index (last 1 .FirstSection.Sections) 0 }}
+                    {{ $page := index ($section.Pages) 0 }}
+                    <h3><a href="{{ $page.Permalink }}">{{ .Title }}</a></h3>
+                    <p>{{ $section.Param "slogan" }}</p>
+                {{ end }}
             {{ end }}
 
             <hr>
             <p>Find even more <a href="https://spatie.be/en/opensource">Open Source projects</a> on our website.</p>
-
         </article>
     </div>
 </div>

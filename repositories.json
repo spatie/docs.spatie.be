@@ -7,7 +7,8 @@
             "v5": "v5",
             "v4": "v4",
             "v3": "v3"
-        }
+        },
+        "category": "laravel"
     },
     {
         "name": "laravel-medialibrary",
@@ -18,14 +19,16 @@
             "v5": "v5",
             "v4": "v4",
             "v3": "v3"
-        }
+        },
+        "category": "laravel"
     },
     {
         "name": "laravel-blade-x",
         "repository": "spatie/laravel-blade-x",
         "branches": {
             "master": "v2"
-        }
+        },
+        "category": "laravel"
     },
     {
         "name": "laravel-tags",
@@ -33,7 +36,8 @@
         "branches": {
             "master": "v2",
             "v1": "v1"
-        }
+        },
+        "category": "laravel"
     },
     {
         "name": "laravel-event-projector",
@@ -41,7 +45,8 @@
         "branches": {
             "master": "v2",
             "v1": "v1"
-        }
+        },
+        "category": "laravel"
     },
     {
         "name": "laravel-activitylog",
@@ -50,7 +55,8 @@
             "master": "v3",
             "v2": "v2",
             "v1": "v1"
-        }
+        },
+        "category": "laravel"
     },
     {
         "name": "laravel-html",
@@ -58,14 +64,16 @@
         "branches": {
             "master": "v2",
             "v1": "v1"
-        }
+        },
+        "category": "laravel"
     },
     {
         "name": "laravel-server-monitor",
         "repository": "spatie/laravel-server-monitor",
         "branches": {
             "master": "v1"
-        }
+        },
+        "category": "laravel"
     },
     {
         "name": "laravel-uptime-monitor",
@@ -74,14 +82,16 @@
             "master": "v3",
             "v2": "v2",
             "v1": "v1"
-        }
+        },
+        "category": "laravel"
     },
     {
         "name": "laravel-slack-slash-command",
         "repository": "spatie/laravel-slack-slash-command",
         "branches": {
             "master": "v1"
-        }
+        },
+        "category": "laravel"
     },
     {
         "name": "menu",
@@ -89,13 +99,24 @@
         "branches": {
             "master": "v2",
             "v1": "v1"
-        }
+        },
+        "category": "general-php"
     },
     {
         "name": "image",
         "repository": "spatie/image",
         "branches": {
             "master": "v1"
-        }
+        },
+        "category": "general-php"
+    },
+    {
+        "name": "enum",
+        "repository": "spatie/enum",
+        "branches": {
+            "master": "v2",
+            "v1": "v1"
+        },
+        "category": "general-php"
     }
 ]
