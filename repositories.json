@@ -75,5 +75,12 @@
             "v2": "v2",
             "v1": "v1"
         }
+    },
+    {
+        "name": "laravel-slack-slash-command",
+        "repository": "spatie/laravel-slack-slash-command",
+        "branches": {
+            "master": "v1"
+        }
     }
 ]
