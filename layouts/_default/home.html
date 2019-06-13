@@ -5,7 +5,7 @@
             <h1>Overview</h1>
 
             {{ range .Site.Sections.GroupByParam "category" }}
-                <h2>{{ replace (.Key | humanize | title) "Php" "PHP" }}</h2>
+                <h2>{{ .Key }}</h2>
                 {{ range .Pages }}
                     {{ $section := index (last 1 .FirstSection.Sections) 0 }}
                     {{ $page := index ($section.Pages) 0 }}
