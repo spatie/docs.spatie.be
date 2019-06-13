@@ -82,5 +82,13 @@
         "branches": {
             "master": "v1"
         }
+    },
+    {
+        "name": "menu",
+        "repository": "spatie/menu",
+        "branches": {
+            "master": "v2",
+            "v1": "v1"
+        }
     }
 ]
