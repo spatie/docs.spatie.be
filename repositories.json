@@ -19,5 +19,12 @@
             "v4": "v4",
             "v3": "v3"
         }
+    },
+    {
+        "name": "laravel-blade-x",
+        "repository": "spatie/laravel-blade-x",
+        "branches": {
+            "master": "v2"
+        }
     }
 ]
