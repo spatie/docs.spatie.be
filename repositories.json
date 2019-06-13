@@ -65,5 +65,14 @@
         "branches": {
             "master": "v1"
         }
+    },
+    {
+        "name": "laravel-uptime-monitor",
+        "repository": "spatie/laravel-uptime-monitor",
+        "branches": {
+            "master": "v3",
+            "v2": "v2",
+            "v1": "v1"
+        }
     }
 ]
