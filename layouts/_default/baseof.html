@@ -23,7 +23,7 @@
     {{ $.Scratch.Set "slogan" "Documentation for our comprehensive packages" }}
 {{ end }}
 <!DOCTYPE html>
-<html lang="{{ $.Site.Language.Lang }}">
+<html lang="{{ $.Site.Language.Lang }}" data-viewport class="$viewport-loading">
 <head>
     {{ if ne .Title ($.Scratch.Get "package") }}
         <title>{{ .Title }} | {{ $.Scratch.Get "package" }}</title>
