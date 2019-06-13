@@ -56,7 +56,8 @@
         "name": "laravel-html",
         "repository": "spatie/laravel-html",
         "branches": {
-            "master": "v2"
+            "master": "v2",
+            "v1": "v1"
         }
     },
     {
