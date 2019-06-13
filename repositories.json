@@ -58,5 +58,12 @@
         "branches": {
             "master": "v2"
         }
+    },
+    {
+        "name": "laravel-server-monitor",
+        "repository": "spatie/laravel-server-monitor",
+        "branches": {
+            "master": "v1"
+        }
     }
 ]
