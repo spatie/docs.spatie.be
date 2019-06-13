@@ -26,5 +26,13 @@
         "branches": {
             "master": "v2"
         }
+    },
+    {
+        "name": "laravel-tags",
+        "repository": "spatie/laravel-tags",
+        "branches": {
+            "master": "v2",
+            "v1": "v1"
+        }
     }
 ]
