@@ -17,6 +17,17 @@
         {{ . | replaceRE "(<h[1-9] id=\"([^\"]+)\">)(.*)(</h[1-9]+>)" `${1}${3} <a href="#${2}" class="anchor-link" aria-label="Anchor"></a>${4}` | safeHTML }}
       </div>
       {{- end -}}
+
+    <div class="pagination">
+        <div class="pagination_buttons">
+            {{ with .NextInSection }}
+                <a class="pagination_button -previous" href="{{ .Permalink }}"></a>
+            {{ end }}
+            {{ with .PrevInSection }}
+                <a class="pagination_button -next" href="{{ .Permalink }}"></a>
+            {{ end }}
+        </div>
+    </div>
     </article>
     {{ if .File }}
       <div class="toolbar">
