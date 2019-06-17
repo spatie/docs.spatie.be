@@ -1,5 +1,5 @@
 [build]
-command = "node fetch-content.js && hugo -b docs.spatie.be"
+command = "node fetch-content.js && hugo -b https://docs.spatie.be"
 publish = "public"
 
 [context.production.environment]
