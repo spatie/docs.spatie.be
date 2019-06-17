@@ -4,13 +4,9 @@
         {{ $.Scratch.Set "version" .Title }}
         {{ if (.Param "slogan") }}
             {{ $.Scratch.Set "slogan" (.Param "slogan") }}
-        {{ else }}
-            {{ $.Scratch.Set "slogan" "Documentation for our comprehensive packages" }}
         {{ end }}
         {{ if (.Param "githubUrl") }}
             {{ $.Scratch.Set "githubUrl" (.Param "githubUrl") }}
-        {{ else }}
-            {{ $.Scratch.Set "githubUrl" "https://github.com/spatie" }}
         {{ end }}
         {{ if (.Param "branch") }}
             {{ $.Scratch.Set "branch" (.Param "branch") }}
@@ -21,6 +17,9 @@
 {{ end }}
 {{ if not ($.Scratch.Get "slogan") }}
     {{ $.Scratch.Set "slogan" "Documentation for our comprehensive packages" }}
+{{ end }}
+{{ if not ($.Scratch.Get "githubUrl") }}
+    {{ $.Scratch.Set "githubUrl" "https://github.com/spatie" }}
 {{ end }}
 <!DOCTYPE html>
 <html lang="{{ $.Site.Language.Lang }}" data-viewport class="$viewport-loading">
