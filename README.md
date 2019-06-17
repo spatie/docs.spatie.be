@@ -14,8 +14,8 @@ If you discover any security related issues, please email freek@spatie.be instea
 
 ## Credits
 
-- [Sebastian](https://github.com/sebastiandedeyne)
-- [Rias](https://github.com/riasvdv)
+- [Sebastian De Deyne](https://github.com/sebastiandedeyne)
+- [Rias Van der Veken](https://github.com/riasvdv)
 - [All Contributors](../../contributors)
 
 ## About Spatie
