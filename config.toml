@@ -3,4 +3,4 @@ languageCode = "en-us"
 title = "Spatie Docs"
 
 pluralizelisttitles = false
-disableKinds = ["taxonomy", "taxonomyTerm", "RSS", "sitemap"]
+disableKinds = ["taxonomy", "taxonomyTerm", "RSS"]
