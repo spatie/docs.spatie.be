@@ -1,3 +1,24 @@
 {{ define "main" }}
-<h1>Nothing Here...</h1>
+<div class="grid">
+    <div class="grid_col -width-2/3">
+        <article class="article">
+            <h1>Docs not found</h1>
+
+            <div class="alert -info">
+                <p>We know nothing about <strong id="404"></strong> — or it has yet to be written.<br>
+                    Help us out on <a href="https://github.com/spatie" target="_external">Github</a> if you know more.
+                </p>
+            </div>
+            <hr>
+            <p>What do we know? Look at all our sections <a href="/">here</a></p>
+
+            <hr>
+            <p>Find even more <a href="https://spatie.be/open-source">Open Source projects</a> on our website.</p>
+        </article>
+    </div>
+</div>
+
+<script>
+    document.getElementById('404').innerHTML = window.location.pathname;
+</script>
 {{ end }}
