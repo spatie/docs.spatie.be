@@ -12,79 +12,79 @@ HUGO_ENV = "production"
   status = 301
   force = true
 
-[[redirect]]
+[[redirects]]
   from = "/laravel-backup/"
   to = "/laravel-backup/v6/introduction"
   status = 301
   force = true
 
-[[redirect]]
+[[redirects]]
   from = "/laravel-medialibrary/"
   to = "/laravel-medialibrary/v7/introduction"
   status = 301
   force = true
 
-[[redirect]]
+[[redirects]]
   from = "/laravel-blade-x/"
   to = "/laravel-blade-x/v2/introduction"
   status = 301
   force = true
 
-[[redirect]]
+[[redirects]]
   from = "/laravel-tags/"
   to = "/laravel-tags/v2/introduction"
   status = 301
   force = true
 
-[[redirect]]
+[[redirects]]
   from = "/laravel-event-projector/"
   to = "/laravel-event-projector/v2/introduction"
   status = 301
   force = true
 
-[[redirect]]
+[[redirects]]
   from = "/laravel-activitylog/"
   to = "/laravel-activitylog/v3/introduction"
   status = 301
   force = true
 
-[[redirect]]
+[[redirects]]
   from = "/laravel-html/"
   to = "/laravel-html/v2/introduction"
   status = 301
   force = true
 
-[[redirect]]
+[[redirects]]
   from = "/laravel-server-monitor/"
   to = "/laravel-server-monitor/v1/introduction"
   status = 301
   force = true
 
-[[redirect]]
+[[redirects]]
   from = "/laravel-uptime-monitor/"
   to = "/laravel-uptime-monitor/v3/introduction"
   status = 301
   force = true
 
-[[redirect]]
+[[redirects]]
   from = "/laravel-slack-slash-command/"
   to = "/laravel-slack-slash-command/v1/introduction"
   status = 301
   force = true
 
-[[redirect]]
+[[redirects]]
   from = "/menu/"
   to = "/menu/v2/introduction"
   status = 301
   force = true
 
-[[redirect]]
+[[redirects]]
   from = "/image/"
   to = "/image/v1/introduction"
   status = 301
   force = true
 
-[[redirect]]
+[[redirects]]
   from = "/enum/"
   to = "/enum/v2/introduction"
   status = 301
