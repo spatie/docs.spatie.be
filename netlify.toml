@@ -11,3 +11,9 @@ HUGO_ENV = "production"
   to = "https://docs.spatie.be/:splat"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/laravel-medialibrary/"
+  to = "/laravel-medialibrary/v7/introduction"
+  status = 301
+  force = true
