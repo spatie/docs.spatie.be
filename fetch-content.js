@@ -14,9 +14,19 @@ function transformBranchToFolderName(branch) {
 
     for (const repository of repositories) {
         for (const [branch, alias] of Object.entries(repository.branches)) {
-            promises.push(exec(`mkdir -p content/${repository.name}/${alias} && curl https://codeload.github.com/${repository.repository}/tar.gz/${branch} \
-             | tar -xz -C content/${repository.name}/${alias} --strip=2 ${repository.repository.split('/')[1]}-${transformBranchToFolderName(branch)}/docs \
-             && echo "---\ntitle: ${repository.name}\ncategory: ${repository.category}\n---" > content/${repository.name}/_index.md`));
+            const folder = `content/${repository.name}/${alias}`;
+            const url = `https://codeload.github.com/${repository.repository}/tar.gz/${branch}`;
+
+            if (repository.readme) {
+                promises.push(exec(`mkdir -p ${folder} && curl ${url} \
+                 | tar -xz -C ${folder} --strip=1 ${repository.repository.split('/')[1]}-${transformBranchToFolderName(branch)}/README.md \
+                 && echo "---\ntitle: ${repository.name}\ncategory: ${repository.category}\n---" > content/${repository.name}/_index.md \
+                 && mv ${folder}/README.md ${folder}/_index.md`));
+            } else {
+                promises.push(exec(`mkdir -p ${folder} && curl ${url} \
+                 | tar -xz -C ${folder} --strip=2 ${repository.repository.split('/')[1]}-${transformBranchToFolderName(branch)}/docs \
+                 && echo "---\ntitle: ${repository.name}\ncategory: ${repository.category}\n---" > content/${repository.name}/_index.md`));
+            }
         }
     }
 

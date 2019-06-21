@@ -118,5 +118,14 @@
             "v1": "v1"
         },
         "category": "General PHP"
+    },
+    {
+        "name": "laravel-endpoint-resources",
+        "repository": "spatie/laravel-endpoint-resources",
+        "branches": {
+            "master": "v1"
+        },
+        "category": "Laravel",
+        "readme": true
     }
 ]
