@@ -20,10 +20,12 @@ function transformBranchToFolderName(branch) {
             promises.push(exec(`mkdir -p ${folder} && curl ${url} \
              | tar -xz -C ${folder} --strip=2 ${repository.repository.split('/')[1]}-${transformBranchToFolderName(branch)}/docs \
              && echo "---\ntitle: ${repository.name}\ncategory: ${repository.category}\n---" > content/${repository.name}/_index.md`));
-      
         }
     }
 
-    await Promise.all(promises);
+    await Promise.all(promises)
+        .catch(error => {
+            console.log(error);
+        });
     console.timeEnd('Fetched repositories');
 })();

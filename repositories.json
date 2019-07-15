@@ -118,5 +118,13 @@
             "v1": "v1"
         },
         "category": "General PHP"
+    },
+    {
+        "name": "laravel-permission",
+        "repository": "spatie/laravel-permission",
+        "branches": {
+            "master": "v2"
+        },
+        "category": "Laravel"
     }
 ]
