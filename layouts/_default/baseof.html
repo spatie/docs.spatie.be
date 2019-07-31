@@ -15,6 +15,20 @@
         {{ end }}
     {{ end }}
 {{ end }}
+{{ $latest := "" }}
+{{ range sort .FirstSection.Sections.ByWeight.Reverse }}
+  {{ if not ($.Scratch.Get "latest") }}
+    {{ $.Scratch.Set "latest" .Title }}
+  {{ end }}
+{{ end }}
+{{ if not (eq ($.Scratch.Get "latest") ($.Scratch.Get "version")) }}
+    {{ range .FirstSection.Sections }}
+        {{ if eq ($.Scratch.Get "latest") .Title }}
+            {{ $page := index (.Pages) 0 }}
+            {{ $.Scratch.Set "latestUrl" $page.Permalink }}
+        {{ end }}
+    {{ end }}
+{{ end }}
 {{ if not ($.Scratch.Get "slogan") }}
     {{ $.Scratch.Set "slogan" "Documentation for our comprehensive packages" }}
 {{ end }}
@@ -31,6 +45,9 @@
     {{ end }}
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    {{ if not (eq ($.Scratch.Get "latest") ($.Scratch.Get "version")) }}
+        <link rel="canonical" href="{{ replace .Permalink ($.Scratch.Get "version") ($.Scratch.Get "latest") }}" />
+    {{ end }}
     <link rel="stylesheet" href="/css/docs.css">
     <script src="/js/docs.js" defer></script>
 </head>
@@ -67,7 +84,17 @@
                     </ul>
                 {{ end }}
                 <br>
-                <p class="header_caption_slogan">{{ $.Scratch.Get "slogan" }}</p>
+                <p class="header_caption_slogan">
+                    {{ $.Scratch.Get "slogan" }}
+                    {{ if not (eq ($.Scratch.Get "latest") ($.Scratch.Get "version")) }}
+                        {{ range .FirstSection.Sections }}
+                            {{ if eq ($.Scratch.Get "latest") .Title }}
+                                {{ $page := index (.Pages) 0 }}
+                                &mdash; <a style="color: #fff;" href="{{ $page.Permalink }}" ><strong>A newer version is available!</strong></a>
+                            {{ end }}
+                        {{ end }}
+                    {{ end }}
+                </p>
             </div>
             <div class="header_logos">
                 <a href="{{ $.Scratch.Get "githubUrl" }}" target="_external">
