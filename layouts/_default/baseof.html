@@ -86,7 +86,7 @@
                 <br>
                 <p class="header_caption_slogan">
                     {{ $.Scratch.Get "slogan" }}
-                    {{ if not (eq ($.Scratch.Get "latest") ($.Scratch.Get "version")) }}
+                    {{ if and ($.Scratch.Get "version") (not (eq ($.Scratch.Get "latest") ($.Scratch.Get "version"))) }}
                         {{ range .FirstSection.Sections }}
                             {{ if eq ($.Scratch.Get "latest") .Title }}
                                 {{ $page := index (.Pages) 0 }}
