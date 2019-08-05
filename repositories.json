@@ -134,5 +134,13 @@
             "master": "v2"
         },
         "category": "Laravel"
+    },
+    {
+        "name": "laravel-query-builder",
+        "repository": "spatie/laravel-query-builder",
+        "branches": {
+            "v2": "v2"
+        },
+        "category": "Laravel"
     }
 ]
