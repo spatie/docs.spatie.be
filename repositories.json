@@ -139,7 +139,8 @@
         "name": "laravel-query-builder",
         "repository": "spatie/laravel-query-builder",
         "branches": {
-            "v2": "v2"
+            "v1": "v1",
+            "master": "v2"
         },
         "category": "Laravel"
     }
