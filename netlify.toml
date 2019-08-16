@@ -89,3 +89,9 @@ HUGO_ENV = "production"
   to = "/enum/v2/introduction"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/laravel-resource-endpoints/"
+  to = "/laravel-resource-endpoints/v1/introduction"
+  status = 301
+  force = true
