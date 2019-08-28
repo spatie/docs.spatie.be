@@ -1,13 +1,5 @@
 [
     {
-        "name": "laravel-query-builder",
-        "repository": "spatie/laravel-query-builder",
-        "branches": {
-            "master": "v2"
-        },
-        "category": "Laravel"
-    },
-    {
         "name": "laravel-backup",
         "repository": "spatie/laravel-backup",
         "branches": {
@@ -139,7 +131,6 @@
         "name": "laravel-query-builder",
         "repository": "spatie/laravel-query-builder",
         "branches": {
-            "v1": "v1",
             "master": "v2"
         },
         "category": "Laravel"
