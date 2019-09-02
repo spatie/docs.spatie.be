@@ -124,7 +124,7 @@
         "repository": "spatie/laravel-permission",
         "branches": {
             "master": "v3",
-            "v2": "v2",
+            "v2": "v2"
         },
         "category": "Laravel"
     },
