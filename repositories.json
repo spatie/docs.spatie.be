@@ -123,7 +123,8 @@
         "name": "laravel-permission",
         "repository": "spatie/laravel-permission",
         "branches": {
-            "master": "v2"
+            "master": "v3",
+            "v2": "v2",
         },
         "category": "Laravel"
     },
