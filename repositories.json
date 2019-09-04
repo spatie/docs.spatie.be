@@ -44,7 +44,7 @@
         "repository": "spatie/laravel-event-projector",
         "branches": {
             "master": "v3",
-            "v2": "v2"
+            "v2": "v2",
             "v1": "v1"
         },
         "category": "Laravel"
