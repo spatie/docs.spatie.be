@@ -121,6 +121,14 @@
         "category": "General PHP"
     },
     {
+        "name": "laravel-model-states",
+        "repository": "spatie/laravel-model-states",
+        "branches": {
+            "master": "v1"
+        },
+        "category": "General PHP"
+    },
+    {
         "name": "laravel-permission",
         "repository": "spatie/laravel-permission",
         "branches": {
