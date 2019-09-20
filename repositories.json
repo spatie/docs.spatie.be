@@ -1,13 +1,5 @@
 [
     {
-        "name": "laravel-query-builder",
-        "repository": "spatie/laravel-query-builder",
-        "branches": {
-            "v2": "v2"
-        },
-        "category": "Laravel"
-    },
-    {
         "name": "laravel-backup",
         "repository": "spatie/laravel-backup",
         "branches": {
@@ -51,7 +43,8 @@
         "name": "laravel-event-projector",
         "repository": "spatie/laravel-event-projector",
         "branches": {
-            "master": "v2",
+            "master": "v3",
+            "v2": "v2",
             "v1": "v1"
         },
         "category": "Laravel"
@@ -128,8 +121,25 @@
         "category": "General PHP"
     },
     {
+        "name": "laravel-model-states",
+        "repository": "spatie/laravel-model-states",
+        "branches": {
+            "master": "v1"
+        },
+        "category": "General PHP"
+    },
+    {
         "name": "laravel-permission",
         "repository": "spatie/laravel-permission",
+        "branches": {
+            "master": "v3",
+            "v2": "v2"
+        },
+        "category": "Laravel"
+    },
+    {
+        "name": "laravel-query-builder",
+        "repository": "spatie/laravel-query-builder",
         "branches": {
             "master": "v2"
         },
@@ -140,6 +150,14 @@
         "repository": "spatie/laravel-event-sourcing",
         "branches": {
             "master": "v4"
+        },
+        "category": "Laravel"
+    },
+    {
+        "name": "laravel-resource-endpoints",
+        "repository": "spatie/laravel-resource-endpoints",
+        "branches": {
+            "master": "v1"
         },
         "category": "Laravel"
     }

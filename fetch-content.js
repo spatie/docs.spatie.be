@@ -11,21 +11,29 @@ function transformBranchToFolderName(branch) {
 
 (async function () {
     let promises = [];
+    await exec("rm -rf temp && rm -rf content/*");
 
     for (const repository of repositories) {
         for (const [branch, alias] of Object.entries(repository.branches)) {
-            const folder = `content/${repository.name}/${alias}`;
-            const url = `https://codeload.github.com/${repository.repository}/tar.gz/${branch}`;
-
-            promises.push(exec(`mkdir -p ${folder} && curl ${url} \
-             | tar -xz -C ${folder} --strip=2 ${repository.repository.split('/')[1]}-${transformBranchToFolderName(branch)}/docs \
-             && echo "---\ntitle: ${repository.name}\ncategory: ${repository.category}\n---" > content/${repository.name}/_index.md`));
+            promises.push(exec(`mkdir -p content/${repository.name}/${alias} \
+                && mkdir -p temp/${repository.name}/${alias} \
+                && cd temp/${repository.name}/${alias} \
+                && git init \
+                && git config core.sparseCheckout true \
+                && echo "/docs" >> .git/info/sparse-checkout \
+                && git remote add -f origin https://github.com/spatie/${repository.name}.git \
+                && git pull origin ${branch} \
+                && cp -r docs/* ../../../content/${repository.name}/${alias} \
+                && echo "---\ntitle: ${repository.name}\ncategory: ${repository.category}\n---" > ../../../content/${repository.name}/_index.md`));
         }
     }
 
     await Promise.all(promises)
         .catch(error => {
             console.log(error);
+        })
+        .finally(() => {
+            exec("rm -rf temp");
         });
     console.timeEnd('Fetched repositories');
 })();
