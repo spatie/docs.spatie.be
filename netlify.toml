@@ -91,7 +91,7 @@ HUGO_ENV = "production"
   force = true
 
 [[redirects]]
-  from = "/laravel-resource-endpoints/"
-  to = "/laravel-resource-endpoints/v1/introduction"
+  from = "/laravel-resource-links/"
+  to = "/laravel-resource-links/v1/introduction"
   status = 301
   force = true
