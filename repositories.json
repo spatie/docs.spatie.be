@@ -154,8 +154,8 @@
         "category": "Laravel"
     },
     {
-        "name": "laravel-resource-endpoints",
-        "repository": "spatie/laravel-resource-endpoints",
+        "name": "laravel-resource-links",
+        "repository": "spatie/laravel-resource-links",
         "branches": {
             "master": "v1"
         },
