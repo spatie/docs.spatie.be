@@ -1,5 +1,13 @@
 [
     {
+        "name": "laravel-email-campaigns",
+        "repository": "spatie/laravel-email-campaigns",
+        "branches": {
+            "master": "v1",
+        },
+        "category": "Laravel"
+    },
+    {
         "name": "laravel-backup",
         "repository": "spatie/laravel-backup",
         "branches": {
