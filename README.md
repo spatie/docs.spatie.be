@@ -2,7 +2,29 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/855d0daf-00d9-4dcb-8fca-66f51c48edee/deploy-status)](https://app.netlify.com/sites/docs-spatie/deploys)
 
-This repository contains the hugo configuration of the docs site. The application is automatically deployed to https://docs.spatie.be
+This repository contains the Hugo configuration of the docs site. The application is automatically deployed to https://docs.spatie.be
+
+## Installation
+
+First ensure that Hugo is installed on your system.
+
+```
+brew install hugo
+```
+
+Node.js is also a requirement. You can download node.js from [nodejs.org](https://nodejs.org/en/).
+
+Next, fetch the content from our package repositories. You only need to run this step once.
+
+```
+node fetch-content.js
+```
+
+Now the site can be built with Hugo. During development, you can have Hugo spin up a local webserver and watch for changes.
+
+```
+hugo server
+```
 
 ## Contributing
 
