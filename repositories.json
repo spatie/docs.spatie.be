@@ -149,7 +149,8 @@
         "name": "laravel-event-sourcing",
         "repository": "spatie/laravel-event-sourcing",
         "branches": {
-            "master": "v1"
+            "v2": "master",
+            "v1": "v1"
         },
         "category": "Laravel"
     },
