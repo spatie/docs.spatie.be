@@ -13,7 +13,25 @@
         <div class="grid_col -width-1/3">
             <div class="nav">
                 <input id="algolia-search" placeholder="Search docs" class="nav_search">
+                {{ if eq $package "laravel-medialibrary" }}
+                <a
+                    href="https://medialibrary.pro?utm_source=docs.spatie.be"
+                    style="display: block; max-width: 75%; font-size: .75rem; margin: 2em 0; background-color:#c42543; color: #fff; padding: 1em 2em; font-weight: 700;border-radius: 5px;"
+                >
+                    <p style="margin-bottom:.75em;">
+                        We are working on MediaLibrary UI component.
+                        <br /><span style="color: #ffe375">Coming Spring 2020</span>
+                    </p>
+                    <p>
+                        <span
+                            style="border-bottom: 1px solid rgba(255,255,255,.5); color: #fff;"
+                            >medialibrary.pro</span
+                        >
+                    </p>
+                </a>
+                {{ else }}
                 <a href="https://mailcoach.app?utm_source=docs.spatie.be"><img src="/images/mailcoach.svg" class="mailcoach"></a>
+                {{ end }}
                 <nav class="nav_menu">
                     <ul>
                         {{ range .Pages.ByWeight }}
