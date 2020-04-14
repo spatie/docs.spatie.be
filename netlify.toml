@@ -19,6 +19,12 @@ HUGO_ENV = "production"
   force = true
 
 [[redirects]]
+  from = "/laravel-backup-server/"
+  to = "/laravel-backup-server/v1/introduction"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/laravel-medialibrary/"
   to = "/laravel-medialibrary/v7/introduction"
   status = 301
