@@ -15,7 +15,7 @@ function transformBranchToFolderName(branch) {
 
     for (const repository of repositories) {
         for (const [branch, alias] of Object.entries(repository.branches)) {
-            let pullCommand = `mkdir -p content/${repository.name}/${alias} \
+            promises.push(exec(`mkdir -p content/${repository.name}/${alias} \
                 && mkdir -p temp/${repository.name}/${alias} \
                 && cd temp/${repository.name}/${alias} \
                 && git init \
@@ -25,9 +25,7 @@ function transformBranchToFolderName(branch) {
                 && git pull origin ${branch} \
                 && cp -r docs/* ../../../content/${repository.name}/${alias} \
                 && echo "---\ntitle: ${repository.name}\ncategory: ${repository.category}\n---" > ../../../content/${repository.name}/_index.md \
-            `;
-
-            promises.push(exec(pullCommand));
+            `));
         }
     }
 
