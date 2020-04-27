@@ -11,6 +11,7 @@ function transformBranchToFolderName(branch) {
 
 (async function () {
     let promises = [];
+    await exec("ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts");
     await exec("rm -rf temp && rm -rf content/*");
 
     for (const repository of repositories) {
