@@ -11,7 +11,6 @@ function transformBranchToFolderName(branch) {
 
 (async function () {
     let promises = [];
-    await exec("export GIT_SSH_COMMAND=\"ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no\"");
     await exec("rm -rf temp && rm -rf content/*");
 
     for (const repository of repositories) {
@@ -22,7 +21,7 @@ function transformBranchToFolderName(branch) {
                 && git init \
                 && git config core.sparseCheckout true \
                 && echo "/docs" >> .git/info/sparse-checkout \
-                && git remote add -f origin git@github.com:spatie/${repository.name}.git \
+                && GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" git remote add -f origin git@github.com:spatie/${repository.name}.git \
                 && git pull origin ${branch} \
                 && cp -r docs/* ../../../content/${repository.name}/${alias} \
                 && echo "---\ntitle: ${repository.name}\ncategory: ${repository.category}\n---" > ../../../content/${repository.name}/_index.md \
