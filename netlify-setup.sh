@@ -10,8 +10,8 @@ if [ ! -z "${DEPLOY_PRIME_URL}" ]; then
     chmod og-rwx ~/.ssh/id_rsa
 
     # Uncomment to debug
-    # ls -la ~/.ssh
-    # cat ~/.ssh/id_rsa
+    ls -la ~/.ssh
+    cat ~/.ssh/id_rsa
 
     # Add host keys, comment out if not needed
     ssh-keyscan -H github.com >> ~/.ssh/known_hosts
