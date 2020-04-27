@@ -15,16 +15,27 @@ function transformBranchToFolderName(branch) {
 
     for (const repository of repositories) {
         for (const [branch, alias] of Object.entries(repository.branches)) {
-            promises.push(exec(`mkdir -p content/${repository.name}/${alias} \
+            let pullCommand = `mkdir -p content/${repository.name}/${alias} \
                 && mkdir -p temp/${repository.name}/${alias} \
                 && cd temp/${repository.name}/${alias} \
                 && git init \
                 && git config core.sparseCheckout true \
                 && echo "/docs" >> .git/info/sparse-checkout \
-                && git remote add -f origin git@github.com:spatie/${repository.name}.git \
+            `;
+
+            if (repository.private) {
+                pullCommand += `&& git remote add -f origin git@github.com:spatie/${repository.name}.git`;
+            } else {
+                pullCommand += `&& git remote add -f origin https://github.com/spatie/${repository.name}.git`;
+            }
+
+            pullCommand += `
                 && git pull origin ${branch} \
                 && cp -r docs/* ../../../content/${repository.name}/${alias} \
-                && echo "---\ntitle: ${repository.name}\ncategory: ${repository.category}\n---" > ../../../content/${repository.name}/_index.md`));
+                && echo "---\ntitle: ${repository.name}\ncategory: ${repository.category}\n---" > ../../../content/${repository.name}/_index.md \
+            `;
+
+            promises.push(exec(pullCommand));
         }
     }
 

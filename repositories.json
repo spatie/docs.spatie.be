@@ -168,6 +168,7 @@
         "branches": {
             "master": "v1"
         },
-        "category": "Laravel"
+        "category": "Laravel",
+        "private": true
     }
 ]
