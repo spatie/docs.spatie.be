@@ -29,7 +29,7 @@ function transformBranchToFolderName(branch) {
                 pullCommand += `&& git remote add -f origin https://github.com/spatie/${repository.name}.git`;
             }
 
-            pullCommand += `
+            pullCommand += `\
                 && git pull origin ${branch} \
                 && cp -r docs/* ../../../content/${repository.name}/${alias} \
                 && echo "---\ntitle: ${repository.name}\ncategory: ${repository.category}\n---" > ../../../content/${repository.name}/_index.md \
