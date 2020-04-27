@@ -11,6 +11,7 @@ function transformBranchToFolderName(branch) {
 
 (async function () {
     let promises = [];
+    await exec("export GIT_SSH_COMMAND=\"ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no\"");
     await exec("rm -rf temp && rm -rf content/*");
 
     for (const repository of repositories) {
