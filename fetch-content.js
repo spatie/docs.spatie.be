@@ -22,7 +22,7 @@ function transformBranchToFolderName(branch) {
                 && git config core.sparseCheckout true \
                 && echo "/docs" >> .git/info/sparse-checkout \
                 && GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" git remote add -f origin git@github.com:spatie/${repository.name}.git \
-                && git pull origin ${branch} \
+                && GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" git pull origin ${branch} \
                 && cp -r docs/* ../../../content/${repository.name}/${alias} \
                 && echo "---\ntitle: ${repository.name}\ncategory: ${repository.category}\n---" > ../../../content/${repository.name}/_index.md \
             `;
