@@ -21,7 +21,7 @@ function transformBranchToFolderName(branch) {
                 && git init \
                 && git config core.sparseCheckout true \
                 && echo "/docs" >> .git/info/sparse-checkout \
-                && git remote add -f origin https://github.com/spatie/${repository.name}.git \
+                && git remote add -f origin git@github.com:spatie/${repository.name}.git \
                 && git pull origin ${branch} \
                 && cp -r docs/* ../../../content/${repository.name}/${alias} \
                 && echo "---\ntitle: ${repository.name}\ncategory: ${repository.category}\n---" > ../../../content/${repository.name}/_index.md`));
