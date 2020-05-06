@@ -107,3 +107,9 @@ HUGO_ENV = "production"
   to = "/laravel-dashboard/v1/introduction"
   status = 301
   force = true
+  
+[[redirects]]
+  from = "/laravel-multitenancy/"
+  to = "/laravel-multitenancy/v1/introduction"
+  status = 301
+  force = true
