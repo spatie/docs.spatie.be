@@ -169,5 +169,13 @@
             "master": "v1"
         },
         "category": "Laravel"
-    }
+    },
+    {
+        "name": "laravel-multitenancy",
+        "repository": "spatie/laravel-multitenancy",
+        "branches": {
+            "master": "v1"
+        },
+        "category": "Laravel"
+    },
 ]
