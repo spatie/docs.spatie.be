@@ -155,14 +155,6 @@
         "category": "Laravel"
     },
     {
-        "name": "laravel-backup-server",
-        "repository": "spatie/laravel-backup-server",
-        "branches": {
-            "master": "v1"
-        },
-        "category": "Laravel"
-    },
-    {
         "name": "laravel-dashboard",
         "repository": "spatie/laravel-dashboard",
         "branches": {
