@@ -178,13 +178,5 @@
             "master": "v1"
         },
         "category": "Laravel"
-    },
-    {
-        "name": "typescript-transformer",
-        "repository": "spatie/typescript-transformer",
-        "branches": {
-            "better-reflection": "v1"
-        },
-        "category": "General PHP"
     }
 ]
