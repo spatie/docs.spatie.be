@@ -183,7 +183,7 @@
         "name": "typescript-transformer",
         "repository": "spatie/typescript-transformer",
         "branches": {
-            "master": "v1"
+            "better-reflection": "v1"
         },
         "category": "General PHP"
     }
