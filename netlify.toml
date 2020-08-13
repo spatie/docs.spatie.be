@@ -113,3 +113,9 @@ HUGO_ENV = "production"
   to = "/laravel-multitenancy/v1/introduction"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/typescript-transformer/"
+  to = "/typescript-transformer/v1/introduction"
+  status = 301
+  force = true
